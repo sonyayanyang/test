@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
+          name="viewport"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <title></title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            font-family: '微软雅黑', 'microsoft yahei', arial, simsun, sans-self;
+            font-size: 1em;
+        }
+        html, body {
+            height: 100%;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+        }
+        #wrap {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .content {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background: -webkit-linear-gradient(white, #80d8df);
+            -webkit-box-sizing: border-box;
+            padding: 5px;
+        }
+        .content h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 1.25em;
+            margin: 60px 0 20px;
+        }
+        .content:nth-child(1) h2 {
+            margin-top: 100px;
+        }
+        .content h2 img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+        }
+        .content h1 {
+            width: 225px;
+            margin: 0 auto;
+        }
+        .content h1 img {
+            width: 225px;
+        }
+        .content ul li {
+            line-height: 30px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .content ol {
+            text-align: center;
+        }
+        .content ol li {
+            width: 105px;
+            height: 105px;
+            line-height: 105px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            font-weight: bold;
+
+        }
+        .content ol li:nth-child(1) {
+            background-color: lime;
+        }
+        .content ol li:nth-child(2) {
+            background-color: blueviolet;
+        }
+        .content ol li:nth-child(3) {
+            background-color: deepskyblue;
+        }
+        .content ol li:nth-child(4) {
+            background-color: #fbe26f;
+        }
+        .content ol li:nth-child(5) {
+            background-color: #ff2823;
+        }
+        .animate {
+            display: block;
+            opacity: 0;
+            z-index: 5;
+            -webkit-animation-name: slide;
+            -webkit-animation: slide .4s ease 0s;
+            -webkit-animation-fill-mode:forwards;
+        }
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(100%);
+                /*-webkit-transform: rotate(90deg);*/
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                /* -webkit-transform: rotate(0deg);*/
+            }
+        }
+        .animate_rev {
+            display: block;
+            opacity: 0;
+            z-index: 5;
+            -webkit-animation-name: sliderev;
+            -webkit-animation: sliderev .4s ease 0s;
+            -webkit-animation-fill-mode:forwards;
+        }
+        @-webkit-keyframes sliderev {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0);
+            }
+        }
+        .flash {
+            -webkit-animation: flash 1s linear 0s infinite;
+            animation: flash 1s linear 0s infinite;
+        }
+        @-webkit-keyframes flash {
+            0%,100%{
+                box-shadow: 0 0 10px 1px purple;
+            }
+            50% {
+                box-shadow: 0 0 50px 1px cornflowerblue;
+            }
+
+        }
+        .bottom{
+            position: absolute;
+            left: 50%;
+            bottom: 3%;
+            width: 40px;
+            margin-left: -20px;
+            display: inline-block;
+            font-size: 50px;
+            font-weight: bold;
+            color:dodgerblue;
+            -webkit-transform: rotate(90deg);
+            -webkit-animation: bounce 1s linear 0s infinite;
+            animation: bounce 1s linear 0s infinite;
+        }
+        @-webkit-keyframes bounce {
+            0% {
+                bottom: 3%;
+            }
+            30% {
+                bottom: 2%;
+            }
+            60%{
+                bottom: 1%;
+            }
+
+        }
+        .personinfor{
+            opacity: 0;
+            -webkit-animation: bounce1 .4s ease-in .4s ;
+            animation: bounce1 .4s ease-in .4s ;
+            -webkit-animation-fill-mode:forwards;
+        }
+        @-webkit-keyframes bounce1 {
+            0%{
+                opacity: 0;
+                -webkit-transform: translateX(200%);
+            }
+            100%{
+                opacity: 1;
+                -webkit-transform: translateX(0%);
+            }
+
+        }
+        .btn{
+            text-align: center;
+            top:70%;
+            left: 17%;
+            position: absolute;
+        }
+        .btn span{
+            box-shadow:  0 5px 10px 0px #666;
+            margin: 0 10px;
+        }
+        .btn a{
+            width: 110px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+            background-color: #6dffad;
+            text-shadow: 3px 3px 5px #8f20ff;
+            box-shadow: inset 0 0 10px 5px royalblue;
+        }
+    </style>
+</head>
+<body>
+<!--wrap-->
+<div id="wrap">
+    <div class="content animate">
+        <h2 class="animatecs"><img class="flash" src="images/IMG_1308.JPG" alt="头像"/></h2>
+        <p class="btn"><a href="https://github.com/sonyayanyang/ziji.git">myGit</a><span><a href="https://github.com/sonyayanyang/ziji.git">myGit</a></span></p>
+        <span class="bottom">&lt;</span>
+    </div>
+    <div class="content">
+        <h2>个人信息</h2>
+        <ul class="personinfor">
+            <li>姓名：董艳阳</li>
+            <li>性别：女</li>
+            <li>年龄：24</li>
+            <li>籍贯：黑龙江省绥化市</li>
+            <li>现住地：北京昌平区霍营</li>
+            <li>学历：本科</li>
+            <li>婚否：否</li>
+            <li>手机：18500239169</li>
+            <li>QQ：244839298</li>
+            <li>邮箱：18500239169@163.com</li>
+        </ul>
+        <span class="bottom">&lt;</span>
+    </div>
+    <div class="content">
+        <h2>工作经验</h2>
+        <ul>
+            <li>2014.6-2016.5</li>
+            <li>北京本果信息技术有限公司</li>
+            <li>网站效果图设计、网站css重构以及浏览器兼容性问题的解决等</li>
+            <li>2012.6-2014.5</li>
+            <li>三星电子北京技术服务有限公司</li>
+            <li>客户关系服务人员</li>
+        </ul>
+        <span class="bottom">&lt;</span>
+    </div>
+    <div class="content">
+        <h2>用到的插件</h2>
+        <ol>
+            <li>jQuery</li><li>Swipe</li><li>touch</li><li>Zepto</li><li>isScroll</li>
+        </ol>
+    </div>
+</div>
+<script>
+    var jobInfo = {
+        hadClass: false,
+        newClass: function (ele) {
+            if (this.hadClass == false) {
+                this.init.prototype = jobInfo;
+                this.hadClass = true;
+            }
+            return new this.init(ele);
+        },
+        prevRun: function (animat) {
+            var _this = this;
+            _this.item--;
+            if (_this.item < 0) {
+                _this.item = _this.contentBox.length - 1;
+            }
+            _this.animationObj(_this.item, animat);
+            console.log(_this.item)
+        },
+        nextRun: function (animat) {
+            var _this = this;
+            _this.item++;
+            if (_this.item == _this.contentBox.length) {
+                _this.item = 0;
+            }
+            _this.animationObj(_this.item, animat);
+        },
+        animationObj: function (setItem, animat) {
+            var _this = this;
+            animat = animat || _this.animation;
+            setItem = setItem || 0;
+            for (var i = 0; i < _this.contentBox.length; i++) {
+                _this.contentBox[i].className = _this.initClass;
+            }
+            _this.contentBox[setItem].className = _this.initClass + ' ' + animat
+        },
+        touchEvent: function () {
+            var _this = this;
+            var page = {
+                x: 0,
+                y: 0
+            };
+            var endPage = {
+                x: 0,
+                y: 0
+            };
+            _this.wrap.addEventListener('touchstart', function (e) {
+                /*e.preventDefault();*/
+                page.x = e.targetTouches[0].pageX;
+                page.y = e.targetTouches[0].pageY;
+            });
+            _this.wrap.addEventListener('touchmove', function (e) {
+                        endPage.x = e.changedTouches[0].pageX;
+                        endPage.y = e.changedTouches[0].pageY;
+                        var pageNum = endPage.y - page.y;
+                        /*if (Math.abs(pageNum) > 10) {
+                            e.preventDefault();
+                        }*/
+            });
+            _this.wrap.addEventListener('touchend', function (e) {
+                /*e.preventDefault();*/
+
+                endPage.x = e.changedTouches[0].pageX;
+                endPage.y = e.changedTouches[0].pageY;
+                var pageNum = endPage.y - page.y;
+                if (Math.abs(pageNum) > 50) {
+                    if (pageNum > 0) {
+                        _this.prevRun(_this.newanimat);
+                    }
+                    else {
+                        _this.nextRun();
+                    }
+                }
+            });
+        },
+        init: function (ele) {
+            var _this = this;
+            _this.initClass = ele.initClass;
+            _this.animation = ele.animation;
+            _this.newanimat = ele.newanimat;
+            _this.item = ele.item;
+            _this.wrap = document.getElementById(ele.wrapId);
+            _this.contentBox = _this.wrap.getElementsByTagName('div');
+            _this.touchEvent();
+        }
+    };
+    var object = {
+        item: 0,
+        wrapId: 'wrap',
+        initClass: 'content',
+        animation: 'animate',
+        newanimat: 'animate_rev'
+    };
+    jobInfo.newClass(object);
+</script>
+</body>
+</html>
